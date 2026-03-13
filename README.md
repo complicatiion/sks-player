@@ -1,45 +1,45 @@
 # \# SKS Player
 
-# 
+
 
 # SKS Player is a browser-based local music player for folder-based audio libraries. It scans a selected music source, builds albums/folders/tracks automatically, and provides a compact playback UI with favorites, search, sorting, and persistent user settings.
 
-# 
+
 
 # \## Status
 
-# 
+
 
 # \*\*Work in progress (WIP).\*\*
 
-# 
+
 
 # \## Use Case
 
-# 
+
 
 # Designed for playing and organizing a local music collection directly in the browser without a backend.
 
-# 
+
 
 # \## Preview
 
-# 
+
 
 # > The preview images below assume the `README.md` is placed in the project root and the images are stored in `assets/preview/`.
 
-# 
 
-![Preview 1](preview/prev1.jpg)
-![Preview 2](preview/prev2.jpg)
-![Preview 3](preview/prev3.jpg)
-![Preview 4](preview/prev4.jpg)
 
-# 
+![Preview 1](preview/assets/prev1.jpg)
+![Preview 2](preview/assets/prev2.jpg)
+![Preview 3](preview/assets/prev3.jpg)
+![Preview 4](preview/assets/prev4.jpg)
+
+
 
 # \## Main Features
 
-# 
+
 
 # \- Folder scan via modern browser directory picker
 
@@ -99,11 +99,11 @@
 
 # \- Keyboard shortcuts for basic playback control
 
-# 
+
 
 # \## Supported Audio Formats
 
-# 
+
 
 # \- `.mp3`
 
@@ -119,7 +119,7 @@
 
 # \## Requirements / Notes
 
-# 
+
 
 # \- Best used in \*\*Chrome or Edge\*\* because modern folder access relies on the File System Access API.
 
@@ -133,19 +133,19 @@
 
 # \- No backend is required.
 
-# 
+
 
 # \## Current Scope
 
-# 
+
 
 # The player is focused on local library browsing and playback, not on advanced metadata parsing, streaming services, or server-side media management.
 
-# 
+
 
 # \## WIP Notes
 
-# 
+
 
 # This project is still under active development. Behavior, UI details, scan logic, and feature set may still change.
 
