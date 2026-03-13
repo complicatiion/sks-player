@@ -2,150 +2,150 @@
 
 
 
-# SKS Player is a browser-based local music player for folder-based audio libraries. It scans a selected music source, builds albums/folders/tracks automatically, and provides a compact playback UI with favorites, search, sorting, and persistent user settings.
+### SKS Player is a browser-based local music player for folder-based audio libraries. It scans a selected music source, builds albums/folders/tracks automatically, and provides a compact playback UI with favorites, search, sorting, and persistent user settings.
 
 
 
-# \## Status
+## \## Status
 
 
 
-# \*\*Work in progress (WIP).\*\*
+## \*\*Work in progress (WIP).\*\*
 
 
 
-# \## Use Case
+## \## Use Case
 
 
 
-# Designed for playing and organizing a local music collection directly in the browser without a backend.
+### Designed for playing and organizing a local music collection directly in the browser without a backend.
 
 
 
-# \## Preview
+## \## Preview
 
 
 
-# > The preview images below assume the `README.md` is placed in the project root and the images are stored in `assets/preview/`.
+### > The preview images below assume the `README.md` is placed in the project root and the images are stored in `assets/preview/`.
 
 
 
-![Preview 1](preview/assets/prev1.jpg)
-![Preview 2](preview/assets/prev2.jpg)
-![Preview 3](preview/assets/prev3.jpg)
-![Preview 4](preview/assets/prev4.jpg)
+![Preview 1](assets/preview/prev1.jpg)
+![Preview 2](assets/preview/prev2.jpg)
+![Preview 3](assets/preview/prev3.jpg)
+![Preview 4](assets/preview/prev4.jpg)
 
 
 
-# \## Main Features
+## \## Main Features
 
 
 
-# \- Folder scan via modern browser directory picker
+### \- Folder scan via modern browser directory picker
 
-# \- Alternative file import via file list / relative folder structure
+### \- Alternative file import via file list / relative folder structure
 
-# \- Automatic library build for:
+### \- Automatic library build for:
 
-# &#x20; - Home overview
+### &#x20; - Home overview
 
-# &#x20; - Albums
+### &#x20; - Albums
 
-# &#x20; - Tracks
+### &#x20; - Tracks
 
-# &#x20; - Folders
+### &#x20; - Folders
 
-# &#x20; - Favorites
+### &#x20; - Favorites
 
-# \- Playback controls:
+### \- Playback controls:
 
-# &#x20; - Play / pause
+### &#x20; - Play / pause
 
-# &#x20; - Previous / next
+### &#x20; - Previous / next
 
-# &#x20; - Shuffle
+### &#x20; - Shuffle
 
-# &#x20; - Repeat
+### &#x20; - Repeat
 
-# &#x20; - Seek and volume control
+### &#x20; - Seek and volume control
 
-# &#x20; - Mute
+### &#x20; - Mute
 
-# &#x20; - Fullscreen
+### &#x20; - Fullscreen
 
-# \- Search across tracks, albums, and folders
+### \- Search across tracks, albums, and folders
 
-# \- Favorites with local persistence
+### \- Favorites with local persistence
 
-# \- Sort modes:
+### \- Sort modes:
 
-# &#x20; - A → Z
+### &#x20; - A → Z
 
-# &#x20; - Z → A
+### &#x20; - Z → A
 
-# &#x20; - Oldest → newest
+### &#x20; - Oldest → newest
 
-# &#x20; - Newest → oldest
+### &#x20; - Newest → oldest
 
-# \- Album/folder cover detection from cover image files
+### \- Album/folder cover detection from cover image files
 
-# \- Saved settings via `localStorage`
+### \- Saved settings via `localStorage`
 
-# \- Saved folder handles via `IndexedDB`
+### \- Saved folder handles via `IndexedDB`
 
-# \- Optional auto-scan on startup
+### \- Optional auto-scan on startup
 
-# \- Optional player state restore
+### \- Optional player state restore
 
-# \- Keyboard shortcuts for basic playback control
+### \- Keyboard shortcuts for basic playback control
 
 
 
-# \## Supported Audio Formats
+## \## Supported Audio Formats
 
 
 
-# \- `.mp3`
+### \- `.mp3`
 
-# \- `.ogg`
+### \- `.ogg`
 
-# \- `.aac`
+### \- `.aac`
 
-# \- `.m4a`
+### \- `.m4a`
 
-# \- `.wav`
+### \- `.wav`
 
-# 
 
-# \## Requirements / Notes
 
+## \## Requirements / Notes
 
 
-# \- Best used in \*\*Chrome or Edge\*\* because modern folder access relies on the File System Access API.
 
-# \- Uses \*\*IndexedDB\*\* to store folder handles.
+### \- Best used in \*\*Chrome or Edge\*\* because modern folder access relies on the File System Access API.
 
-# \- Uses \*\*localStorage\*\* for settings, favorites, and player state.
+### \- Uses \*\*IndexedDB\*\* to store folder handles.
 
-# \- Cover detection currently looks for `.jpg` / `.jpeg` files containing `cover` or `cov` in the filename.
+### \- Uses \*\*localStorage\*\* for settings, favorites, and player state.
 
-# \- Track metadata is mainly derived from filenames and folder names.
+### \- Cover detection currently looks for `.jpg` / `.jpeg` files containing `cover` or `cov` in the filename.
 
-# \- No backend is required.
+### \- Track metadata is mainly derived from filenames and folder names.
 
+### \- No backend is required.
 
 
-# \## Current Scope
 
+## \## Current Scope
 
 
-# The player is focused on local library browsing and playback, not on advanced metadata parsing, streaming services, or server-side media management.
 
+### The player is focused on local library browsing and playback, not on advanced metadata parsing, streaming services, or server-side media management.
 
 
-# \## WIP Notes
 
+## \## WIP Notes
 
 
-# This project is still under active development. Behavior, UI details, scan logic, and feature set may still change.
+
+## This project is still under active development. Behavior, UI details, scan logic, and feature set may still change.
 
