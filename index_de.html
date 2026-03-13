@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SKS PLAYER – lokaler Offline-Musikplayer im Material-Dark-Design" />
+  <title>PLAYER</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+  <!-- Bootstrap (CDN). Für Offline-Betrieb lokal speichern und Pfade anpassen. -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Custom Styles (Material-Dark, Purple Akzent) -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-surface">
+  <!-- SVG-Icon-Sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 6h2v12H6zM20 18L9 12l11-6z"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M6 18l11-6L6 6v12zM20 6h-2v12h2z"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24">
+      <path d="M16 3h5v5h-2V6.41l-2.29 2.3-1.42-1.42L17.59 5H16V3zM3 7h4.17a5 5 0 014.24 2.34l.45.66a5 5 0 004.17 2.34H21v2h-4.97a7 7 0 01-5.94-3.27l-.45-.66A3 3 0 007.17 9H3V7zm0 10h4.17a3 3 0 002.56-1.33l.45-.66A7 7 0 0116.03 12H21v2h-4.97a5 5 0 00-4.17 2.34l-.45.66A5 5 0 017.17 19H3v-2zm16.71.29l-2.3-2.29 1.42-1.42L21 15.59V14h2v5h-5v-2h1.59z"/>
+    </symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M7 7h11v4l3-3-3-3v2H6c-2.21 0-4 1.79-4 4v3h2v-3c0 1.1.9 2 2 2zm10 10H6v-4l-3 3 3 3v-2h12c2.21 0 4-1.79 4-4v-3h-2v3c0 1.1-.9 2-2 2z"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3z"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M16.5 12l3.5 3.5-1.5 1.5L15 13.5 11.5 17l-1.5-1.5L13.5 12 10 8.5 11.5 7 15 10.5 18.5 7 20 8.5 16.5 12zM3 10v4h4l5 5V5L7 10H3z"/></symbol>
+    <symbol id="i-fullscreen" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5zm10 9h-3v2h5v-5h-2v3zm0-14v3h2V5h-5v2h3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 00.12-.64l-1.92-3.32a.5.5 0 00-.6-.22l-2.39.96a7.028 7.028 0 00-1.63-.94l-.36-2.54A.5.5 0 0013.9 1h-3.8a.5.5 0 00-.49.41l-.36 2.54c-.58.23-1.12.54-1.63.94l-2.39-.96a.5.5 0 00-.6.22L2.71 7.02a.5.5 0 00.12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02-.63.06-.94L2.83 12.7a.5.5 0 00-.12.64l1.92 3.32c.13.23.39.32.62.23l2.39-.96c.5.4 1.05.72 1.63.94l.36 2.54c.04.24.25.41.49.41h3.8a.5.5 0 00.49-.41l.36-2.54c.58-.23 1.12-.54 1.63-.94l2.39.96c.23.09.49 0 .62-.23l1.92-3.32a.5.5 0 00-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1115.5 12 3.5 3.5 0 0112 15.5z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M10 4l2 2h8a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h6z"/></symbol>
+    <symbol id="i-album" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 13a3 3 0 113-3 3 3 0 01-3 3z"/></symbol>
+    <symbol id="i-track" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M12 3l10 9h-3v9h-6v-6H11v6H5v-9H2z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-6.716-4.454-9.193-7.294C1.26 11.946 1 10.84 1 9.9 1 7.194 3.149 5 5.8 5c1.66 0 3.17.89 4.2 2.24C11.83 5.89 13.34 5 15 5c2.651 0 4.8 2.194 4.8 4.9 0 .94-.26 2.046-1.807 3.806C18.716 16.546 12 21 12 21z"/></symbol>
+    <symbol id="i-heart-fill" viewBox="0 0 24 24"><path d="M12 21s-6.716-4.454-9.193-7.294C1.26 11.946 1 10.84 1 9.9 1 7.194 3.149 5 5.8 5c1.66 0 3.17.89 4.2 2.24C11.83 5.89 13.34 5 15 5c2.651 0 4.8 2.194 4.8 4.9 0 .94-.26 2.046-1.807 3.806C18.716 16.546 12 21 12 21z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 4l7 7-1.4 1.4L13 7.8V20h-2V7.8L6.4 12.4 5 11z"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 20l-7-7 1.4-1.4L11 16.2V4h2v12.2l4.6-4.6L19 13z" transform="rotate(180 12 12)"/></symbol>
+  </svg>
+
+  <!-- Top-Navigation -->
+  <nav class="navbar navbar-dark bg-elev sticky-top shadow-sm">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center gap-2">
+        <img src="assets/img/logo.png" alt="sks player logo" class="logo me-2" />
+        <span class="brand">PLAYER</span>
+      </div>
+
+      <ul class="nav main-tabs">
+        <li class="nav-item"><a class="nav-link active" data-section="home" href="#"><svg class="icon"><use href="#i-home"/></svg> HOME</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="albums" href="#"><svg class="icon"><use href="#i-album"/></svg> ALBUMS</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="tracks" href="#"><svg class="icon"><use href="#i-track"/></svg> TRACKS</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="folders" href="#"><svg class="icon"><use href="#i-folder"/></svg> FOLDERS</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="favorites" href="#"><svg class="icon"><use href="#i-heart"/></svg> FAVORITES</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        <button id="btn-search" class="btn btn-ghost" title="Suche"><svg class="icon"><use href="#i-search"/></svg></button>
+        <button id="btn-settings" class="btn btn-ghost" title="Einstellungen"><svg class="icon"><use href="#i-settings"/></svg></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Inhalt -->
+  <main class="container-fluid py-3">
+    <section id="section-home" class="content-section">
+      <h5 class="section-title">Schnellzugriff</h5>
+
+      <div class="mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="sub-title"><svg class="icon me-1"><use href="#i-heart"/></svg> Favorites</h6>
+        </div>
+        <div id="home-favorites" class="list-group list-group-flush"></div>
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="sub-title"><svg class="icon me-1"><use href="#i-album"/></svg> ALBUMS</h6>
+          <div class="filter small"></div>
+        </div>
+        <div id="home-albums" class="grid"></div>
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="sub-title"><svg class="icon me-1"><use href="#i-track"/></svg> Tracks</h6>
+          <div class="filter small"></div>
+        </div>
+        <div id="home-tracks" class="list-group list-group-flush"></div>
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="sub-title"><svg class="icon me-1"><use href="#i-folder"/></svg> FOLDERS</h6>
+          <div class="filter small"></div>
+        </div>
+        <div id="home-folders" class="list-group list-group-flush"></div>
+      </div>
+    </section>
+
+    <section id="section-albums" class="content-section d-none">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="section-title"><svg class="icon me-1"><use href="#i-album"/></svg> Alben</h5>
+        <div class="filter"></div>
+      </div>
+      <div id="albums-grid" class="grid"></div>
+    </section>
+
+    <section id="section-tracks" class="content-section d-none">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="section-title"><svg class="icon me-1"><use href="#i-track"/></svg> Tracks</h5>
+        <div class="filter"></div>
+      </div>
+      <div id="tracks-list" class="list-group list-group-flush"></div>
+    </section>
+
+    <section id="section-folders" class="content-section d-none">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="section-title"><svg class="icon me-1"><use href="#i-folder"/></svg> Folders</h5>
+        <div class="filter"></div>
+      </div>
+      <div id="folders-grid" class="grid"></div>
+    </section>
+
+    <section id="section-favorites" class="content-section d-none">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="section-title"><svg class="icon me-1"><use href="#i-heart"/></svg> Favorites</h5>
+      </div>
+      <div id="favorites-list" class="list-group list-group-flush"></div>
+    </section>
+  </main>
+
+  <!-- Player-Leiste (unten) — v3.1-ähnliche Anordnung -->
+  <div id="player-bar" class="player shadow-lg">
+    <div class="container-fluid">
+      <!-- Erste Zeile: Left cluster + Right cluster -->
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <!-- LEFT: cover + meta + controls (nicht zentriert) -->
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+          <div class="cover rounded">
+            <img id="np-cover" src="assets/img/logo6.png" alt="Cover" />
+          </div>
+          <div class="np-meta me-2">
+            <div id="np-title" class="np-title text-truncate">–</div>
+            <div id="np-sub" class="np-sub text-truncate">–</div>
+          </div>
+
+          <div class="controls d-flex align-items-center gap-2">
+            <button id="btn-prev" class="btn btn-ghost" title="Zurück"><svg class="icon xl"><use href="#i-prev"/></svg></button>
+            <button id="btn-play" class="btn btn-primary btn-play" title="Play/Pause"><svg class="icon xl"><use id="icon-playpause" href="#i-play"/></svg></button>
+            <button id="btn-next" class="btn btn-ghost" title="Weiter"><svg class="icon xl"><use href="#i-next"/></svg></button>
+            <button id="btn-shuffle" class="btn btn-ghost" title="Shuffle"><svg class="icon"><use href="#i-shuffle"/></svg></button>
+            <button id="btn-repeat" class="btn btn-ghost" title="Repeat"><svg class="icon"><use href="#i-repeat"/></svg></button>
+          </div>
+        </div>
+
+        <!-- RIGHT: fav-current + mute/vol/full/top/bottom -->
+        <div class="d-flex align-items-center gap-2 right-cluster">
+          <button id="btn-fav-current" class="btn btn-ghost" title="Song favorisieren"><svg class="icon"><use id="icon-fav-current" href="#i-heart"/></svg></button>
+          <button id="btn-mute" class="btn btn-ghost" title="Stumm"><svg class="icon"><use id="icon-vol" href="#i-volume"/></svg></button>
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="1" class="form-range volume range-accent">
+          <button id="btn-full" class="btn btn-ghost" title="Vollbild"><svg class="icon"><use href="#i-fullscreen"/></svg></button>
+          <button id="btn-top" class="btn btn-ghost" title="Nach oben"><svg class="icon"><use href="#i-arrow-up"/></svg></button>
+          <button id="btn-bottom" class="btn btn-ghost" title="Nach unten"><svg class="icon"><use href="#i-arrow-down"/></svg></button>
+        </div>
+      </div>
+
+      <!-- Zweite Zeile: Progressbar full-width -->
+      <div class="row align-items-center g-2 mt-2">
+        <div class="col-auto small text-dim"><span id="time-current">0:00</span></div>
+        <div class="col">
+          <input id="seek" type="range" min="0" max="100" value="0" class="form-range range-accent w-100">
+        </div>
+        <div class="col-auto small text-dim"><span id="time-total">0:00</span></div>
+      </div>
+    </div>
+    <audio id="audio" preload="metadata"></audio>
+  </div>
+
+  <!-- Suche-Dialog -->
+  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearchLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasSearchLabel">Suche</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <input type="search" class="form-control mb-3" id="search-input" placeholder="Album, Track oder Ordner suchen …" />
+      <div id="search-results" class="list-group list-group-flush"></div>
+    </div>
+  </div>
+
+  <!-- Einstellungen-Dialog -->
+  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettingsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasSettingsLabel">Einstellungen</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mb-4">
+        <h6>Musikbibliothek</h6>
+        <div class="d-flex flex-wrap gap-2">
+          <button id="btn-pick" class="btn btn-outline-primary">Ordner wählen (modern)</button>
+          <label class="btn btn-outline-secondary mb-0">
+            <input id="input-folder" type="file" webkitdirectory directory multiple hidden>
+            Alternative Auswahl (ältere Browser)
+          </label>
+          <button id="btn-rescan" class="btn btn-outline-light">Neu scannen</button>
+          <button id="btn-cover-scan" class="btn btn-outline-primary">Albumcover scannen</button>
+        </div>
+        <div id="scan-status" class="small text-secondary mt-2"></div>
+      </div>
+
+      <div class="mb-4">
+        <h6>Fester Bibliothekspfad (optional)</h6>
+        <p class="small text-secondary">
+          <strong>Wichtig:</strong> Browser können nicht direkt per Pfad wie <code>C:\MUSIC</code> auf Dateien zugreifen.
+          Der Pfad dient als Bezeichnung. Per Button <strong>„Ordner zuweisen“</strong> wählst du den Ordner einmal aus (File System Access API) – danach kann er beim Start automatisch gescannt werden.
+        </p>
+        <div class="row g-2 align-items-end">
+          <div class="col-8">
+            <label class="form-label small">Pfad-String</label>
+            <input type="text" id="hard-path" class="form-control" placeholder="C:\MUSIC">
+          </div>
+          <div class="col-4">
+            <button id="btn-bind-hard" class="btn btn-outline-primary w-100">Ordner zuweisen</button>
+          </div>
+        </div>
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="checkbox" id="hard-auto">
+          <label class="form-check-label" for="hard-auto">Diesen Pfad beim Start automatisch scannen</label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h6>Darstellung</h6>
+        <div class="row g-3 align-items-end">
+          <div class="col-6">
+            <label class="form-label small">Akzentfarbe</label>
+            <input type="color" id="accent-picker" value="#6C4DF5" class="form-control form-control-color" title="Akzentfarbe wählen">
+          </div>
+          <div class="col-6">
+            <label class="form-label small">Dichte</label>
+            <select id="density" class="form-select">
+              <option value="comfortable">Komfort</option>
+              <option value="compact">Kompakt</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h6>Startseite</h6>
+        <select id="start-section" class="form-select">
+          <option value="home">HOME</option>
+          <option value="albums">ALBUMS</option>
+          <option value="tracks">TRACKS</option>
+          <option value="folders">FOLDERS</option>
+          <option value="favorites">FAVORITES</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <h6>Grid-Dichte (ALBUMS/FOLDERS)</h6>
+        <div id="grid-density" class="d-flex flex-wrap gap-2">
+          <button class="btn btn-ghost" data-cols="4">4 pro Reihe</button>
+          <button class="btn btn-ghost" data-cols="6">6 pro Reihe</button>
+          <button class="btn btn-ghost" data-cols="8">8 pro Reihe</button>
+          <button class="btn btn-ghost" data-cols="12">12 pro Reihe</button>
+          <button class="btn btn-ghost" data-cols="16">16 pro Reihe</button>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h6>Erweitert</h6>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="auto-scan">
+          <label class="form-check-label" for="auto-scan">Beim Start scannen (zuletzt gewählter Ordner)</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="remember-state">
+          <label class="form-check-label" for="remember-state">Wiedergabe-Status merken</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (CDN). Für Offline-Betrieb lokal speichern. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

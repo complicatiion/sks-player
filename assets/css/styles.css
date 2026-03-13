@@ -1,0 +1,162 @@
+/* 
+  SKS PLAYER – Material-Dark Styles
+*/
+
+:root {
+  --accent: #6c4df5;
+  --bg-surface: #16181c;
+  --bg-elev: #1f2229;
+  --text: #e6e6e6;
+  --text-dim: #a6a8ad;
+  --border: #2a2e36;
+  --card: #20242c;
+
+  --btn-bg: #1a1d23;
+  --btn-bg-hover: #20242c;
+  --btn-text: #f3f4f6;
+
+  --radius: 1rem;
+  --shadow: 0 8px 20px rgba(0,0,0,.35);
+
+  --grid-cols: 8;
+}
+
+html, body { height: 100%; }
+body.bg-surface { background: var(--bg-surface); color: var(--text); font-family: system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+.bg-elev { background: var(--bg-elev); }
+.card, .offcanvas, .list-group-item { background: var(--card); color: var(--text); }
+.border-muted { border-color: var(--border) !important; }
+.text-dim { color: var(--text-dim) !important; }
+
+/* Buttons */
+.btn-primary { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; }
+.btn-outline-primary { border-color: var(--accent) !important; color: var(--accent) !important; }
+.btn-outline-primary:hover { background: color-mix(in srgb, var(--accent), #000 85%); }
+.btn-ghost {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+.btn-ghost:hover { background: var(--btn-bg-hover); border-color: color-mix(in srgb, var(--accent), #000 75%); transform: translateY(-1px); }
+
+/* NAV */
+.navbar { border-bottom: 1px solid var(--border); }
+.logo { width: 32px; height: 32px; object-fit: contain; }
+.brand { font-weight: 700; letter-spacing: .5px; }
+.main-tabs .nav-link {
+  color: var(--text-dim);
+  background: var(--btn-bg);
+  border: 1px solid var(--border);
+  border-radius: .9rem;
+  padding: .5rem .75rem;
+}
+.main-tabs .nav-link.active, .main-tabs .nav-link:hover {
+  color: #fff; background: var(--btn-bg-hover);
+  border-color: color-mix(in srgb, var(--accent), #000 70%);
+}
+
+/* Titles */
+.section-title { color: #fff; opacity: .9; }
+.sub-title { color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; }
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+}
+.album-card, .folder-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: .8rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.album-card:hover, .folder-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent), #000 70%); }
+.album-cover {
+  aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #0f0f12;
+}
+.album-meta { padding: .6rem; }
+.album-title { font-weight: 600; font-size: .95rem; }
+.album-sub { color: var(--text-dim); font-size: .8rem; }
+
+/* Trackliste & HOME-FOLDER-Liste (mittelgroß) */
+.list-group-item { border-bottom: 1px solid var(--border); }
+.track-item:hover, .folder-row:hover { background: rgba(255,255,255,.04); cursor: pointer; }
+.track-title { font-weight: 500; }
+.folder-row .folder-title { font-weight: 600; }
+.folder-row img.icon { width: 28px; height: 28px; }
+
+/* Playing-Highlight */
+.track-item.playing { 
+  background: color-mix(in srgb, var(--accent), transparent 88%); 
+  border-color: color-mix(in srgb, var(--accent), #000 70%);
+}
+
+/* Herz-Button */
+.btn-heart { padding: .3rem .4rem; border-radius: .75rem; }
+.btn-heart.fav-active { border-color: color-mix(in srgb, var(--accent), #000 60%); color: var(--accent); }
+.btn-heart .icon { width: 18px; height: 18px; }
+
+/* PLAYER-LEISTE */
+.player {
+  position: sticky;
+  bottom: 0; left: 0; right: 0;
+  background: var(--bg-elev);
+  padding: .5rem .75rem .7rem;
+  border-top: 1px solid var(--border);
+  z-index: 1030;
+}
+.player .cover { width: 48px; height: 48px; background: #111; overflow: hidden; border-radius: .5rem; }
+.player .cover img { width: 100%; height: 100%; object-fit: cover; }
+.np-title { font-weight: 600; }
+.np-sub { color: var(--text-dim); font-size: .85rem; }
+
+.icon { width: 20px; height: 20px; fill: currentColor; }
+.icon.xl { width: 28px; height: 28px; }
+.btn-play { padding: .6rem .85rem; border-radius: 999px; }
+
+/* Seek (untere Zeile) */
+input[type="range"] { accent-color: var(--accent); }
+.range-accent {
+  height: 6px;
+  background: linear-gradient(to right, var(--accent) 0%, var(--accent) 0%, #3a3f47 0%, #3a3f47 100%);
+  border-radius: 999px;
+}
+.range-accent::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height:16px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); }
+.range-accent::-moz-range-thumb { width: 16px; height:16px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); }
+.range-accent::-webkit-slider-runnable-track { height: 6px; background: transparent; border-radius: 999px; }
+.range-accent::-moz-range-track { height: 6px; background: transparent; border-radius: 999px; }
+
+.volume { width: 120px; }
+
+/* Fokus & Inputs mit Akzentfarbe */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.form-check-input { accent-color: var(--accent); }
+.form-check-input:checked { background-color: var(--accent); border-color: var(--accent); }
+.form-check-input:focus { box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--accent), transparent 80%); }
+
+.text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+
+/* === V7 additions === */
+/* Dark fields for filters and inputs to match Material-Dark theme */
+.form-select, .form-control, .form-control:disabled, .form-select:disabled {
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--border) !important;
+}
+.form-select:focus, .form-control:focus {
+  box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--accent), transparent 80%) !important;
+  border-color: color-mix(in srgb, var(--accent), #000 60%) !important;
+}
+.form-control::placeholder { color: color-mix(in srgb, var(--text), transparent 50%); }
+
+/* Nested folder track list in HOME (expand under clicked folder) */
+.folder-expand { margin-left: 44px; border-left: 2px dashed var(--border); padding-left: .75rem; margin-top: .35rem; }
+.folder-expand .track-subrow { padding: .35rem .25rem; border-bottom: 1px dashed rgba(255,255,255,.06); }
+.folder-expand .track-subrow:last-child { border-bottom: 0; }
+.folder-head { cursor: pointer; }
