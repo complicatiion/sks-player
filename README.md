@@ -30,13 +30,10 @@
 
 # 
 
-# !\[Preview 1](assets/preview/prev1.png)
-
-# !\[Preview 2](assets/preview/prev2.png)
-
-# !\[Preview 3](assets/preview/prev3.png)
-
-# !\[Preview 4](assets/preview/prev4.png)
+![Preview 1](preview/prev1.jpg)
+![Preview 2](preview/prev2.jpg)
+![Preview 3](preview/prev3.jpg)
+![Preview 4](preview/prev4.jpg)
 
 # 
 
