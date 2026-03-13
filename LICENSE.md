@@ -1,7 +1,7 @@
 # LICENSE SKS Player — Non-Commercial, Attribution Required
 
 Copyright (c) 2026 **complicatiion | sksdesign | sven404**  
-GitHub: **https://github.com/complicatiion/sks-playerr**
+GitHub: **https://github.com/complicatiion/sks-player**
 
 ## Summary (Non-binding)
 - **Allowed:** private, non-commercial use
@@ -61,5 +61,6 @@ WIP
 - **Non-commercial**: not primarily intended for or directed toward commercial advantage or monetary compensation, whether direct or indirect.
 
 ---
+
 
 
