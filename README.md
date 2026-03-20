@@ -1,4 +1,4 @@
-# \ SKS Player
+# SKS Player
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-## \ Status
+## Status
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-## \ Use Case
+## Use Case
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-## \ Preview
+## Preview
 
 
 
@@ -33,7 +33,7 @@
 
 
 
-## \ Main Features
+## Main Features
 
 
 
@@ -97,7 +97,7 @@
 
 
 
-## \## Supported Audio Formats
+## Supported Audio Formats
 
 
 
@@ -113,7 +113,7 @@
 
 
 
-## \ Requirements / Notes
+## Requirements / Notes
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-## \ Current Scope
+## Current Scope
 
 
 
@@ -139,7 +139,7 @@
 
 
 
-## \ WIP Notes
+## WIP Notes
 
 
 
